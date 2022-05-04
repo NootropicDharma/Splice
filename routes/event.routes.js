@@ -32,7 +32,7 @@ router.post("/createEvent", (req,res)=>{
     ]
     const author = username
     const idEvento = Date.now()
-    const myEvento = {idEvento,tittle,date,nameEvent,eventImg,participants,author}
+    const myEvento = {idEvento,tittle,date,nameEvent,eventImg,participants,author,gasto}
     EventosCreados.create(myEvento)
     .then((info)=>{
         res.redirect("/profile")

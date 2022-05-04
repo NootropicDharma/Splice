@@ -17,6 +17,8 @@ const createdEvents = new Schema({
 
     author:String,
 
+    gasto:Number,
+
 },{timestamps:true});
 
 const EventosCreados = model("eventosCreados", createdEvents);

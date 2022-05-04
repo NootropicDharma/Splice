@@ -37,14 +37,17 @@ app.use('/profile', profile);
 const events = require("./routes/event.routes")
 app.use("/profile", events)
 
+const changeProfilePic = require('./routes/changeProfilePic.routes');
+app.use('/', changeProfilePic)
+
+const gastosNuevos = require('./routes/gastos.routes');
+app.use('/profile', gastosNuevos)
 
 
 
 
 
 // i also need a route to change profile info 
-const changeProfilePic = require('./routes/changeProfilePic.routes');
-app.use('/', changeProfilePic)
 
 
 

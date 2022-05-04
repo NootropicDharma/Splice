@@ -1,0 +1,68 @@
+
+    <header >
+    <div class="divImagenLogo">
+        <img src="/images/logomonedas.png" alt="Logo">
+    </div>
+    <div class="navHeader">
+        <nav>
+            <ul>
+            <li><a href="/profile/events">Eventos</a></li>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="/auth/logout">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+
+
+
+   
+
+<section class="sectionCreateEvents">
+    <img src="/images/wallpaperbetter.com_2560x1440.jpg"/>
+
+    <div class="divCreatuEvento2">
+    
+            
+        
+                <div class="imageneventito">
+                    
+                        <img src={{eventImg}}>
+                        <h1>{{tittle}}</h1>
+                        <h2>{{nameEvent}}</h2>
+                </div>
+                
+                <div class="usuario">
+                    <ol>
+                                    {{#each participants}}
+                                        <li><p>Usuario: {{Usuario}}</p></li>
+                                        <li><p>{{gasto}}$</p></li>
+                                        <li><p>{{_idEvento}}</p></li>
+                                    {{/each}}
+                    </ol>
+                </div>
+
+
+                <div class="usuarioinfo">
+                    
+                    <form action="/nuevoGasto" method="POST">
+                        <label for="tittle">{{_idEvento}}</label>
+                        <input id="tittle" name="tittle" type="text">
+                        <p>Gasto por Usuario</p>
+                        <input type="number">
+                        <button type="submit">Añadir</button>
+                        <label for="gasto" ></label>
+                        <input type="number" name="gasto" id="gasto" placeholder="1000$">
+                        <button type="submit" >Splice</button>
+                    </form>
+                </div>
+                
+                
+                
+            
+        </div>
+    </div>
+
+</section> 
+
+
