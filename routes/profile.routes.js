@@ -7,13 +7,23 @@ const router = require('express').Router();
 
 router.get('/', isLoggedIn, (req, res)=>{
         const {name,email,username, Avatar}   = req.session.user
+        let UsernameData;
+        User.find({username})
+        .then(user=>{
+                UsernameData = user[0]
+                
+        })
+        .catch(console.log())
         EventosCreados.find({"participants.Usuario":"Alejandro"})
         .then(myEvents=>{
-                const user = {name,email,username,Avatar,myEvents}
+                const user = {
+                        UsernameData,
+                        myEvents}
+                console.log(user)
                 res.render('profile/userProfile', user)
         })
         .catch(console.log())
-  
+
 })
 
 
