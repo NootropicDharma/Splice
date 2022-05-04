@@ -43,12 +43,48 @@ router.post("/createEvent", (req,res)=>{
 
 router.post("/new/event",(req,res)=>{
     const {username} = req.session.user
-    EventosCreados.findByIdAndUpdate(req.body.id,{$push:{participants:{Usuario:username}}})
-    .then(()=>console.log("hola"))
+    const {id} = req.body
+    EventosCreados.find({$and:[{_id:id},{"participants.Usuario":username}]})
+    .then((resultado)=>{
+        console.log(resultado)
+        if(resultado.length===0){
+            EventosCreados.findByIdAndUpdate(req.body.id,{$push:{participants:{Usuario:username}}})
+            .then(()=>console.log())
+            .catch(console.log())
+        } else{
+            console.log("Amigo")
+        }
+        res.redirect('/profile')
+    })
+    .catch(()=>{
+        console.log("Hola")
+
+    })
+
+})
+
+router.post("/event/favorite",(req,res)=>{
+    console.log(req.body.id)
+    const {username} = req.session.user
+    EventosCreados.findById(req.body.id)
+    .then(evento=>{
+        console.log(evento)
+        User.findOneAndUpdate({username:username},{$push:{favoritePlace:evento}})
+        .then(evento=>{
+            console.log(evento)
+            res.redirect("/profile")
+        })
+        .catch(console.log())
+    })
     .catch(console.log())
 })
 
+router.post("/favorite/remove",(req,res)=>{
+    console.log(req.body.id)
+    const {username} = req.session.user
+    res.redirect("/profile")
 
+})
 
 
 
