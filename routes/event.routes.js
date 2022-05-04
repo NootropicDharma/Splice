@@ -52,7 +52,7 @@ router.post("/new/event",(req,res)=>{
             .then(()=>console.log())
             .catch(console.log())
         } else{
-            console.log("Amigo")
+            console.log("Ya agregaste el evento")
         }
         res.redirect('/profile')
     })
