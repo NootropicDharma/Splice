@@ -10,19 +10,21 @@ router.get('/', isLoggedIn, (req, res)=>{
         let UsernameData;
         User.find({username})
         .then(user=>{
-                UsernameData = user[0]
-                
-        })
-        .catch(console.log())
-        EventosCreados.find({"participants.Usuario":"Alejandro"})
-        .then(myEvents=>{
+            UsernameData = user[0]
+            EventosCreados.find({"participants.Usuario":username})
+            .then(myEvents=>{
                 const user = {
                         UsernameData,
                         myEvents}
                 console.log(user)
+                console.log(myEvents)
                 res.render('profile/userProfile', user)
+            })
+            .catch(console.log())
+                
         })
         .catch(console.log())
+
 
 })
 
