@@ -32,6 +32,25 @@
             <input id="_id" type="text" placeholder="id del evento" name="id">
             <button type="submit">Agregar </button>
         </form>
+        <div class="divEventosFavoritos">
+            <h1>Mis eventos Favoritos</h1>
+                    <div>
+            {{#each UsernameData.favoritePlace}}
+            <div>
+                <img src={{eventImg}}>
+                <p>{{nameEvent}}</p>
+                <p>{{tittle}}</p>
+                <div class="formEventoAmigo">
+                    <form action="/profile/favorite/remove" method="POST">
+                        <input type="hidden" name="id" value={{idEvento}}  />
+                        <button type="submit">Quitar</button>
+                    </form>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        </div>
+
 
     </div>
     <div class="divEventosProfile">
@@ -55,7 +74,22 @@
                             </ul>
                         </div>
                         <div class="divEnlacesMyEvents">
+
                             <a href="/profile/nuevoGasto/{{_id}}">Ver Gastos</a>
+
+                            <a href="#">Ver Gastos</a>
+                            <div style="display: flex; flex-direction:row; width:100%; justify-content:space-around">
+                                <form action="profile/event/favorite" method="POST">
+                                    <input type = "hidden" value={{_id}}  name="id" />
+                                    <button>Favorito</button>
+                                </form>
+                                <form>
+                                    <input type = "hidden" value={{_id}}  name="id" />
+                                    <button>Eliminar</button>
+                                </form>
+
+                            </div>
+
                             <p >Id Evento <br> {{_id}}</p>
                             {{!-- <p>Id del Evento</p> --}} 
                         </div>
@@ -64,9 +98,7 @@
             </div>
     
         </div>
-        <div class="divEventosFavoritos">
-            <h1>Mis eventos Favoritos</h1>
-        </div>
+
     </div>
 
 </div>

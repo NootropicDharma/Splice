@@ -16,16 +16,11 @@ router.get('/', isLoggedIn, (req, res)=>{
                 const user = {
                         UsernameData,
                         myEvents}
-                console.log(user)
-                console.log(myEvents)
                 res.render('profile/userProfile', user)
             })
-            .catch(console.log())
-                
+            .catch(console.log())         
         })
         .catch(console.log())
-
-
 })
 
 
