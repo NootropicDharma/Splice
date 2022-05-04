@@ -225,23 +225,22 @@ li{
   display: flex;
   flex-direction: row;
   background-color:rgb(234, 227, 216);
-  height: 800px;
 }
 
 .divprofile {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 30%;
+  background-color: #548c79;
 }
 
-.divprofile h2 {
+.divprofile h1 {
   display: flex;
   justify-content: center;
-  font-size: 20px;
+  font-size: 35px;
   width: 100%;
   font-family: 'Roboto Slab', serif;
-  margin-bottom: 8px;
-  margin-top: 0;
+  padding: 1px 0;
 }
 
 .divprofile p {
@@ -250,6 +249,7 @@ li{
   text-align: center;
   font-size: 17px;
   width: 100%;
+  color: white;
   font-family: 'Roboto Slab', serif;
   margin: 7px 0;
 }
@@ -258,7 +258,13 @@ li{
 display: flex;
 width: 70%;
 margin: 18px 15% 5px 15%;
+border-radius: 10px;
+box-shadow: 0 12px 15px rgba(0, 0, 0, .5);
 }
+.divEventosProfile{
+  width: 100%;
+}
+
 .divTittleEvents {
   background-color:rgb(234, 227, 216);
   height: 800px;
@@ -279,8 +285,8 @@ margin: 18px 15% 5px 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 90%;
-  margin: 20px 5%;
+  width: 100%;
+  margin: 20px 0;
 }
 .cardEvents{
   display: flex;
@@ -317,27 +323,11 @@ margin: 18px 15% 5px 15%;
   height: 95px;
 }
 
-
-.block {
-  position: absolute;
-  top: 140px;
-  left: 600px;
-  display: block;
-  width: 15%;
-  border: none;
-  background-color: #04AA6D;
-  padding: 20px 20px;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.divEventosProfile{
-
-}
 .divMisEventos h1{
+  display: flex;
   font-family: 'Roboto Slab', serif;
   font-size: 33px;
+  justify-content: center;
 }
 .divEventosFavoritos h1{
   font-family: 'Roboto Slab', serif;
@@ -450,14 +440,22 @@ margin: 18px 15% 5px 15%;
   align-items: center;
   cursor: pointer;
   color: white;
-
 }
+
+
+
 
 .cardMyevents{
   display: flex;
   flex-wrap: wrap;
-  width: 25%;
-  margin: 20px 40px;
+  width: 23%;
+  margin: 20px 10px 60px 10px;
+  padding: 20px 30px;
+  border-radius: 20px;
+  background-color: rgb(141, 139, 136,.5);
+  box-shadow: 0 12px 15px rgba(0, 0, 0, .5);
+
+
 }
 
 .divImgMyevents{
@@ -508,4 +506,139 @@ margin: 18px 15% 5px 15%;
   height: 20px;
   padding: 0;
   margin: 0;
+}
+
+.divEnlacesMyEvents{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content:space-around;
+  margin: 5px;
+  padding: 5px;
+}
+.divEnlacesMyEvents a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(55, 106, 164);
+  border-radius: 10px;
+  width: 40%;
+  margin:0 30% 10px 30%;
+  height: 30px;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+
+}
+.divEnlacesMyEvents a:hover{
+  cursor: pointer;
+  background-color:rgb(41, 85, 136) ;
+}
+.divEnlacesMyEvents button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(55, 106, 164);
+  border-radius: 10px;
+  padding: 5px 10px;
+  height: 45px;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  border: none;
+  cursor: pointer;
+
+}
+.divEnlacesMyEvents p{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: rgb(172, 172, 171);
+  border-radius: 10px;
+  padding: 5px 10px;
+  height: 45px;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  border: none;
+}
+
+.formCambiarImg{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.formCambiarImg label{
+  display: flex;
+  width: 100%;
+  font-family: 'Roboto Slab', serif;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.formCambiarImg input{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 10px;
+
+}
+
+.formCambiarImg button{
+  display: flex;
+  margin-top: 20px;
+  width: 50%;
+  margin: 0 25%;
+  background-color: rgb(55, 106, 164);
+  border: none;
+  border-radius: 5px;
+  justify-content: center;
+  padding: 5px 0;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+}
+
+.formCambiarImg button:hover{
+  cursor: pointer;
+  background-color:rgb(41, 85, 136) ;
+}
+
+
+.formEventoAmigo {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formEventoAmigo input{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: 15px 20% 0 20%;
+  border: none;
+  height: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+.formEventoAmigo button{
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  margin: 15px 35% 15px 35%;
+  border: none;
+  padding: 4px 9px;
+  background-color: rgb(55, 106, 164);
+  color: white;
+  font-family: 'Roboto Slab', serif;
+}
+
+.formEventoAmigo button:hover{
+  cursor: pointer;
+  background-color:rgb(41, 85, 136) ;
+  
 }

@@ -13,14 +13,26 @@
         </nav>
     </div>
     </header>
-
-
 <div class="divIndexProfile">
     <div class="divProfile">
+            <h1>{{UsernameData.username}}</h1>
         <img src="{{UsernameData.Avatar}}"/>
-        <h2>{{UsernameData.username}}</h2>
+               
+           <form class="formCambiarImg" action="/foto/create" method="post" enctype="multipart/form-data"> 
+                <input type="file" name="profile-cover-image" accept="image/*" />
+
+            <button type="submit" class="btn btn-primary">Create</button>
+           </form>
+   
+
+        
         <p>Nombre <br>{{UsernameData.name}}</p>
         <p>Email <br>{{UsernameData.email}}</p>
+        <form class="formEventoAmigo" action="/profile/new/event" method="POST">
+            <input id="_id" type="text" placeholder="id del evento" name="id">
+            <button type="submit">Agregar </button>
+        </form>
+
     </div>
     <div class="divEventosProfile">
         <div class="divMisEventos">
@@ -42,21 +54,14 @@
                                 {{/each}}  
                             </ul>
                         </div>
-                        <div class="divButtonAñadirEvento">
-                            <button>Ver Gastos</button>
+                        <div class="divEnlacesMyEvents">
+                            <a href="#">Ver Gastos</a>
+                            <p >Id Evento <br> {{_id}}</p>
+                            {{!-- <p>Id del Evento</p> --}} 
                         </div>
-
                     </div>
                 {{/each}}
             </div>
-            <script>
-            document.addEventListener("click",(e)=>{
-                const IdEvento =  e.target.id
-                if(IdEvento){
-                    window.location.href = `/profile/createEvent/${IdEvento}`
-                }
-            })
-        </script>
    
         </div>
         <div class="divEventosFavoritos">
@@ -67,7 +72,6 @@
 </div>
 
 
-<button class="block"><a href="/foto/create" style="text-decoration:none" > changePic </a></button>
 
 
 {{!-- {{#each}}

@@ -41,7 +41,12 @@ router.post("/createEvent", (req,res)=>{
 })
 
 
-
+router.post("/new/event",(req,res)=>{
+    const {username} = req.session.user
+    EventosCreados.findByIdAndUpdate(req.body.id,{$push:{participants:{Usuario:username}}})
+    .then(()=>console.log("hola"))
+    .catch(console.log())
+})
 
 
 
