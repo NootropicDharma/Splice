@@ -10,7 +10,7 @@ const userSchema = new Schema(
     },
 
     myEvents: [],
- 
+
     Avatar:{
       type:String,
       default:"https://portal.staralliance.com/imagelibrary/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"
