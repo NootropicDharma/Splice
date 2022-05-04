@@ -74,6 +74,9 @@
                             </ul>
                         </div>
                         <div class="divEnlacesMyEvents">
+
+                            <a href="/profile/nuevoGasto/{{_id}}">Ver Gastos</a>
+
                             <a href="#">Ver Gastos</a>
                             <div style="display: flex; flex-direction:row; width:100%; justify-content:space-around">
                                 <form action="profile/event/favorite" method="POST">
@@ -86,13 +89,14 @@
                                 </form>
 
                             </div>
+
                             <p >Id Evento <br> {{_id}}</p>
                             {{!-- <p>Id del Evento</p> --}} 
                         </div>
                     </div>
                 {{/each}}
             </div>
-   
+    
         </div>
 
     </div>
