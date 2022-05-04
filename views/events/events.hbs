@@ -1,0 +1,35 @@
+
+    <header >
+    <div class="divImagenLogo">
+        <img src="/images/logomonedas.png" alt="Logo">
+    </div>
+    <div class="navHeader">
+        <nav>
+            <ul>
+                <li><a href="/profile/events">Eventos</a></li>
+                <li><a href="/profile">Perfil</a></li>
+                <li><a href="/auth/logout">Log out</a></li>
+                </ul>
+        </nav>
+    </div>
+    </header>
+<div class="divTittleEvents">
+    <h1>Eventos</h1>
+    <div class="divEvents">
+        {{#each events}}
+        <div id={{_id}} class="cardEvents" >
+            <img id={{_id}} src={{eventImg}}>
+            <p id={{_id}} style="font-size: 23px; height:28px;">{{name}}</p>
+            <p id={{_id}}> {{description}}</p>
+        </div>
+        {{/each}}
+            <script>
+            document.addEventListener("click",(e)=>{
+                const IdEvento =  e.target.id
+                if(IdEvento){
+                    window.location.href = `/profile/createEvent/${IdEvento}`
+                }
+            })
+            </script>
+    </div>
+</div>

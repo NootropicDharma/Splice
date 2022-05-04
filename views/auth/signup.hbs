@@ -1,0 +1,49 @@
+
+<header >
+   <div class="divImagenLogo">
+      <a href="/"><img src="/images/logomonedas.png" alt="Logo"></a>
+   </div>
+   <div class="navHeader">
+      <nav>
+         <ul>
+            <li><a href="/auth/login">Iniciar Sesion</a></li>
+            <li><a href="/auth/signup">Registrarse</a></li>
+         </ul>
+      </nav>
+   </div>
+</header>
+<section class="section1Signup">
+   <h1>Registro para Splice</h1>
+<form class="formSignUp" action="/auth/signup" method="POST">
+   <div style="padding:15px 0;">
+      <label> Name</label>
+      <input type="text" name="name">
+   </div>
+   <div style="padding:15px 0;">
+      <label> Username</label>
+      <input type="text" name="username">
+   </div>
+   <div style="padding:15px 0;">
+      <label> Email</label>
+      <input type="email" name="email">   
+   </div>
+   <div style="padding:15px 0;">
+      <label> Password</label>
+      <input type="password" name="password" minlength="8">
+   </div>
+   <div class="divButtonRegistrar" style="padding:15px 0;">
+      <button  type="submit">Registrar</button>
+   </div>
+   <div class="divButtonsRegistrar" >
+      <button style="border-radius:0 0 0 20px"><img src="/images/google.png"></button>
+      <button style="border-radius:0 0 20px 0"><img src="/images/facebook.png"></button>
+   </div>
+</form>
+</section> 
+{{#if errorMessage}}
+<div class="divErrorMessage">
+   <p>{{errorMessage}}</p>
+</div>
+
+{{/if}}
+

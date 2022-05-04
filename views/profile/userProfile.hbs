@@ -1,0 +1,79 @@
+
+    <header >
+    <div class="divImagenLogo">
+        <img src="/images/logomonedas.png" alt="Logo">
+    </div>
+    <div class="navHeader">
+        <nav>
+            <ul>
+            <li><a href="/profile/events">Eventos</a></li>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="/auth/logout">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+
+
+<div class="divIndexProfile">
+    <div class="divProfile">
+        <img src={{Avatar}}/>
+        <h2>{{username}}</h2>
+        <p>Nombre <br>{{name}}</p>
+        <p>Email <br>{{email}}</p>
+    </div>
+    <div class="divEventosProfile">
+        <div class="divMisEventos">
+            <h1>Mis eventos</h1>
+            <div class="divEvents">
+                {{#each myEvents}}
+                    <div  class="cardMyevents" >
+                        <div class="divImgMyevents">
+                            <img  src={{eventImg}}>
+                        </div>
+                        <div class="divParrafosCard">
+                            <h1>{{nameEvent}}</h1>
+                            <p style="justify-content:center; font-size:17px">{{tittle}}</p>
+                            <p>Autor del Evento: {{author}}</p>
+                            <p>Participantes:</p>
+                            <ul>
+                                {{#each participants }}
+                                    <li><p>{{Usuario}}</p></li>
+                                {{/each}}  
+                            </ul>
+                        </div>
+                        <div class="divButtonAñadirEvento">
+                            <button>Ver Gastos</button>
+                        </div>
+
+                    </div>
+                {{/each}}
+            </div>
+            <script>
+            document.addEventListener("click",(e)=>{
+                const IdEvento =  e.target.id
+                if(IdEvento){
+                    window.location.href = `/profile/createEvent/${IdEvento}`
+                }
+            })
+        </script>
+   
+        </div>
+        <div class="divEventosFavoritos">
+            <h1>Mis eventos Favoritos</h1>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{{!-- {{#each}}
+    <div>
+        <img={{eventos.eventImg}}>
+        <h1>{{eventos.name}}</h1>
+        <h2>{{eventos.description}}</h2>
+    </div>
+{{/each}} --}}

@@ -1,0 +1,53 @@
+
+<header >
+    <div class="divImagenLogo">
+        <img src="/images/Splice.png" alt="Logo">
+    </div>
+    <div class="navHeader">
+        <nav>
+            <ul>
+            <li><a href="#">Eventos</a></li>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="#">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+<section class="sectionCreateEvents">
+    <div class="divCreateEventTittle">
+        <h1>Crea tu evento</h1>
+    </div>
+    <div class="divCreatuEvento">
+        <div class="divImgCreateEvent">
+            <img src={{eventImg}}>
+        </div>
+        <div class="divFormCreateEvent">
+            <h1>{{name}}</h1>
+            <form action="/profile/createEvent" method="POST">
+            <div>
+                <label for="tittle">Titulo del evento</label>
+                <input id="tittle" name="tittle" type="text">
+            </div>
+            <div>
+                <label for="Date">Fecha del evento</label>
+                <input type="date" name="date" id="Date">
+            </div>
+            <div>
+                <label for="gasto">Tu gasto</label>
+                <input type="number" name="gasto" id="gasto">
+            </div>
+            <input type="hidden" name="eventImg" value={{eventImg}}>
+            <input type="hidden" name="nameEvent" value={{name}}>
+            <div>
+                <p>Invitar Amigos</p>
+            </div>
+            <div class="divButtonAñadirEvento">
+                <button type="submit">Añadir Evento</button>
+            </div>
+            <script>
+            </script>
+            </form>
+        </div>
+    </div>
+
+</section> 
