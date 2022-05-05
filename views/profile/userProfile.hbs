@@ -24,8 +24,6 @@
             <button type="submit" class="btn btn-primary">Create</button>
            </form>
    
-
-        
         <p>Nombre <br>{{UsernameData.name}}</p>
         <p>Email <br>{{UsernameData.email}}</p>
         <form class="formEventoAmigo" action="/profile/new/event" method="POST">
@@ -50,8 +48,6 @@
             {{/each}}
         </div>
         </div>
-
-
     </div>
     <div class="divEventosProfile">
         <div class="divMisEventos">
@@ -69,7 +65,7 @@
                             <p>Participantes:</p>
                             <ul>
                                 {{#each participants }}
-                                    <li><p>{{Usuario}}</p></li>
+                                    <li><p>{{this}}</p></li>
                                 {{/each}}  
                             </ul>
                         </div>

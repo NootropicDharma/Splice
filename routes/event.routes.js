@@ -24,12 +24,11 @@ router.post("/createEvent", (req,res)=>{
     const {tittle, date, gasto, nameEvent, eventImg, descripcion} = req.body
     const {username}= req.session.user
     console.log(username)
-    const participants = [
-        {Usuario:username,descripcion:descripcion,gasto:gasto}
-    ]
+    const participants = [username]   
+    const gastos = [{username:username,description:descripcion,costo:gasto}]
     const author = username
     const idEvento = Date.now()
-    const myEvento = {idEvento,tittle,date,nameEvent,eventImg,participants,author,gasto}
+    const myEvento = {idEvento,tittle,date,nameEvent,eventImg,participants,author,gastos}
     EventosCreados.create(myEvento)
     .then((info)=>{
         res.redirect("/profile")
@@ -41,11 +40,11 @@ router.post("/createEvent", (req,res)=>{
 router.post("/new/event",(req,res)=>{
     const {username} = req.session.user
     const {id} = req.body
-    EventosCreados.find({$and:[{_id:id},{"participants.Usuario":username}]})
+    EventosCreados.find({$and:[{_id:id},{participants:username}]})
     .then((resultado)=>{
         console.log(resultado)
         if(resultado.length===0){
-            EventosCreados.findByIdAndUpdate(req.body.id,{$push:{participants:{Usuario:username}}})
+            EventosCreados.findByIdAndUpdate(req.body.id,{$push:{participants:username}})
             .then(()=>console.log())
             .catch(console.log())
         } else{

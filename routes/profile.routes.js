@@ -11,7 +11,7 @@ router.get('/', isLoggedIn, (req, res)=>{
         User.find({username})
         .then(user=>{
             UsernameData = user[0]
-            EventosCreados.find({"participants.Usuario":username})
+            EventosCreados.find({"participants":username})
             .then(myEvents=>{
                 const user = {
                         UsernameData,
