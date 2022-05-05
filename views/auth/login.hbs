@@ -28,12 +28,23 @@
    <div class="divButtonRegistrar" style="padding:15px 0;">
       <button style="width:30%"  type="submit">Iniciar Sesion</button>
    </div>
-   <div class="divButtonsRegistrar" >
-      <button style="border-radius:0 0 0 20px"><img src="/images/google.png"></button>
-      <button style="border-radius:0 0 20px 0"><img src="/images/facebook.png"></button>
-   </div>
 </form>
+      <div class="divButtonsRegistrar" >
+         <button style="border-radius:0 0 0 20px"><img src="/images/google.png"></button>
+         <button style="border-radius:0 0 20px 0"><img src="/images/facebook.png"></button>
+      </div>
+
+   
+   </form>
 </section> 
+
+{{#unless user}}
+  Home page
+  <div>
+    <a href="/auth/google">Login With Google</a>
+  </div>
+{{/unless}}
+
 
 
 {{#if errorMessage}}

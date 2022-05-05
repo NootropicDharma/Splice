@@ -26,6 +26,10 @@ const userSchema = new Schema(
     },
 
     favoritePlace: [],
+
+    googleID: String,
+
+    
     
     
   },

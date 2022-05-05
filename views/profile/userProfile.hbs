@@ -17,12 +17,17 @@
     <div class="divProfile">
             <h1>{{UsernameData.username}}</h1>
         <img src="{{UsernameData.Avatar}}"/>
-               
-           <form class="formCambiarImg" action="/foto/create" method="post" enctype="multipart/form-data"> 
-                <input type="file" name="profile-cover-image" accept="image/*" />
+        
+            <form class="formCambiarImg" action="/foto/create" method="post" enctype="multipart/form-data">
+                <label class="gitano" for="firstimg">
+                    <img class="changeimg imagennueva" src="images/pictureicon1.png">
+                    
+                </label> 
+                <input id="firstimg" type="file" name="profile-cover-image" accept="image/*" style="display: none; visibility: none;" />
 
             <button type="submit" class="btn btn-primary">Create</button>
-           </form>
+
+            </form>
    
         <p>Nombre <br>{{UsernameData.name}}</p>
         <p>Email <br>{{UsernameData.email}}</p>
@@ -30,6 +35,16 @@
             <input id="_id" type="text" placeholder="id del evento" name="id">
             <button type="submit">Agregar </button>
         </form>
+       <h1>email friend</h1>
+<form action="/send-email" method="post">
+  <label for="">Email</label>
+  <input type="email" name="email" id="">
+  <label for="">Subject</label>
+  <input type="text" name="subject" id="">
+  <label for="">Message</label>
+  <textarea type="text" name="message" id=""></textarea>
+  <button type="submit">Submit</button>
+</form>
         <div class="divEventosFavoritos">
             <h1>Mis eventos Favoritos</h1>
                     <div>
@@ -72,6 +87,7 @@
                         <div class="divEnlacesMyEvents">
 
                             <a href="/profile/nuevoGasto/{{_id}}">Ver Gastos</a>
+
 
                             <div style="display: flex; flex-direction:row; width:100%; justify-content:space-around">
                                 <form action="profile/event/favorite" method="POST">
