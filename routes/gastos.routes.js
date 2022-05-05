@@ -6,7 +6,8 @@ router.get('/nuevoGasto/:id', (req, res)=>{
     const {username} = req.session.user
     EventosCreados.findById(req.params.id)
     .then(evento=>{
-        const gastosnuevos = evento.gastos.map(gasto=>{
+
+        const gastosnuevos = evento.gastos.filter(gasto=>{
             if(gasto.username === username){
                 return gasto
             }
@@ -15,15 +16,9 @@ router.get('/nuevoGasto/:id', (req, res)=>{
             return total += Number(gasto.costo)
         },0)
         
-        const find = evento.gastos.map(gasto=>{
-            if(gasto.username === username){
-                return true
-            } else{
-                return false
-            }
-        })
+        const find = evento.gastos.some(gasto=>gasto.username === username)
         console.log(find)
-            if(find[0]){
+            if(find){
                 
                 EventosCreados.findByIdAndUpdate(req.params.id,{$pull:{gastosTotales:{username:username}}})
                 .then(()=>{
