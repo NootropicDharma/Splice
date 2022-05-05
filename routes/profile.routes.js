@@ -5,6 +5,7 @@ const User = require('../models/User.model');
 const EventosCreados = require("../models/createdEvents");
 const router = require('express').Router();
 
+
 router.get('/', isLoggedIn, (req, res)=>{
         const {name,email,username, Avatar}   = req.session.user
         let UsernameData;
