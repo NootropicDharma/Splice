@@ -17,7 +17,9 @@ const createdEvents = new Schema({
 
     author:String,
 
-    gasto:Number,
+    gastos:[],
+
+    gastosTotales:[],
 
 },{timestamps:true});
 

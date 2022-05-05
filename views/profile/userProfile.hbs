@@ -29,8 +29,6 @@
 
             </form>
    
-
-        
         <p>Nombre <br>{{UsernameData.name}}</p>
         <p>Email <br>{{UsernameData.email}}</p>
         <form class="formEventoAmigo" action="/profile/new/event" method="POST">
@@ -65,8 +63,6 @@
             {{/each}}
         </div>
         </div>
-
-
     </div>
     <div class="divEventosProfile">
         <div class="divMisEventos">
@@ -84,7 +80,7 @@
                             <p>Participantes:</p>
                             <ul>
                                 {{#each participants }}
-                                    <li><p>{{Usuario}}</p></li>
+                                    <li><p>{{this}}</p></li>
                                 {{/each}}  
                             </ul>
                         </div>
@@ -92,7 +88,7 @@
 
                             <a href="/profile/nuevoGasto/{{_id}}">Ver Gastos</a>
 
-                            
+
                             <div style="display: flex; flex-direction:row; width:100%; justify-content:space-around">
                                 <form action="profile/event/favorite" method="POST">
                                     <input type = "hidden" value={{_id}}  name="id" />
@@ -102,7 +98,6 @@
                                     <input type = "hidden" value={{_id}}  name="id" />
                                     <button>Eliminar</button>
                                 </form>
-
                             </div>
 
                             <p >Id Evento <br> {{_id}}</p>
