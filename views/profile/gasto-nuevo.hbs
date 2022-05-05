@@ -13,56 +13,54 @@
         </nav>
     </div>
     </header>
-
-
-
-   
-
-<section class="sectionCreateEvents">
-    <img src="/images/wallpaperbetter.com_2560x1440.jpg"/>
-
-    <div class="divCreatuEvento2">
     
-            
-        
-                <div class="imageneventito">
-                    
-                        <img src={{eventImg}}>
-                        <h1>{{tittle}}</h1>
-                        <h2>{{nameEvent}}</h2>
-                </div>
-                
-                <div class="usuario">
-                    <ol>
-                                    {{#each participants}}
-                                        <li><p>Usuario: {{Usuario}}</p></li>
-                                        <li><p>{{gasto}}$</p></li>
-                                        <li><p>{{_idEvento}}</p></li>
-                                    {{/each}}
-                    </ol>
-                </div>
-
-
-                <div class="usuarioinfo">
-                    
-                    <form action="/nuevoGasto" method="POST">
-                        <label for="tittle">{{_idEvento}}</label>
-                        <input id="tittle" name="tittle" type="text">
-                        <p>Gasto por Usuario</p>
-                        <input type="number">
-                        <button type="submit">Añadir</button>
-                        <label for="gasto" ></label>
-                        <input type="number" name="gasto" id="gasto" placeholder="1000$">
-                        <button type="submit" >Splice</button>
-                    </form>
-                </div>
-                
-                
-                
-            
+    <section class="sectionGastos">
+        <h1 class="tituloDelEvento">Evento</h1>
+        <div class="divCardGastosEvent">
+            <div class="divGastosIMg">
+                <img src={{eventImg}}>
+            </div>
+            <div class="divCaracteristicasEvent">
+                <h1>{{nameEvent}}</h1>
+                <h1 style="margin-bottom: 20px;">{{tittle}}</h1>
+                <p> Fecha del evento: {{date}}</p>
+                <p>Autor del evento:  {{author}}</p>
+            </div>
+            <div class="divParticipantes">
+                <h1>Participantes</h1>
+                <ul>
+                    {{#each participants}}
+                    <li><p>{{Usuario}}</p></li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
-    </div>
+        <div class="divGastos">
+            <div class="divGastosParticipantes">
+                <h2>Lista de Gastos</h2>
+                {{#each participants}}
+                <div class="divGastoParticipantes">
+                    <p>{{Usuario}}</p>
+                    <p>{{descripcion}}</p>
+                    <p>${{gasto}}</p>
+                </div> 
+                {{/each}}
+            </div>
+            <div class="divNuevoGasto">
+                <form action="/profile/nuevo/gasto" method="POST">
+                    <h2 style="margin-bottom: 35px;">Nuevo Gasto</h2>
+                    <input type="hidden" name="id" id="id" value={{_id}}>
+                    <div >
+                        <label for="descripcion">Descripción</label>
+                        <input type="text" name="descripcion" id="descripcion">
+                    </div>
+                    <div>
+                        <label for="gasto">Cantidad</label>
+                        <input type="text" name="gasto" id="gasto">
+                    </div>
+                    <button type="submit">Aceptar</button>
+                </form>
+            </div>
+        </div>
 
-</section> 
-
-
+    </section>

@@ -21,14 +21,11 @@ router.get('/createEvent/:id', (req,res)=>{
 })
 
 router.post("/createEvent", (req,res)=>{
-    const {tittle, date, gasto, nameEvent, eventImg} = req.body
+    const {tittle, date, gasto, nameEvent, eventImg, descripcion} = req.body
     const {username}= req.session.user
     console.log(username)
     const participants = [
-        {
-            gasto: gasto,
-            Usuario: username
-        }
+        {Usuario:username,descripcion:descripcion,gasto:gasto}
     ]
     const author = username
     const idEvento = Date.now()
