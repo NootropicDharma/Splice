@@ -33,7 +33,9 @@ router.get('/nuevoGasto/:id', (req, res)=>{
                             if(evento.gastosTotales.length>1){
                                 const username1 = evento.gastosTotales[0]
                             const username2 = evento.gastosTotales[1]
-
+                            console.log(username1)
+                            console.log(username2)
+                            console.log(Promedio)
                             let deudaA ;
                             if(username1.gastoTotal<Promedio){
                                 const deuda = Promedio-username1.gastoTotal
@@ -45,7 +47,18 @@ router.get('/nuevoGasto/:id', (req, res)=>{
                                 console.log(deuda)
                                 deudaA = `${username2.username} le debe $${deuda} chelines a ${username1.username}`
                                 console.log(deudaA)
-                            } 
+
+                            }  else if(username1.gastoTotal==Promedio){
+                                const deuda = 0
+                                console.log(deuda)
+                                deudaA = `Todos pusieron el mismo gasto`
+                                console.log(deudaA)
+                            }  else if(username2.gastoTotal==Promedio){
+                                const deuda = 0
+                                console.log(deuda)
+                                deudaA = `Todos pusieron el mismo gasto`
+                                console.log(deudaA)
+                            }  
 
                             EventosCreados.findByIdAndUpdate(req.params.id,{deuda:deudaA})
                             .then(()=>{

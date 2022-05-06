@@ -95,7 +95,7 @@ router.post('/event/eliminar', (req, res)=>{
     console.log(id)
     const {username} = req.session.user
     console.log(username)
-    EventosCreados.findOneAndUpdate({username:username},{ $pull: { participants: { $in: [username]} } })
+    EventosCreados.findByIdAndUpdate(req.body.id,{ $pull: { participants: { $in: [username]} } })
     .then(()=>{
         console.log("se puedo")
         res.redirect("/profile")
