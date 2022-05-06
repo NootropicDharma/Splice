@@ -7,6 +7,16 @@ router.get('/nuevoGasto/:id', (req, res)=>{
     EventosCreados.findById(req.params.id)
     .then(evento=>{
 
+        const day = (evento.date.getDate())+1
+        const month = evento.date.getMonth() + 1;
+        const year =  evento.date.getFullYear();
+        const result = `${day}/${month}/${year}`
+        console.log(result)
+
+        EventosCreados.findByIdAndUpdate(req.params.id,{dateString:result})
+        .then(console.log())
+        .catch(console.log())
+
         const gastosnuevos = evento.gastos.filter(gasto=>{
             if(gasto.username === username){
                 return gasto
@@ -33,9 +43,6 @@ router.get('/nuevoGasto/:id', (req, res)=>{
                             if(evento.gastosTotales.length>1){
                                 const username1 = evento.gastosTotales[0]
                             const username2 = evento.gastosTotales[1]
-                            console.log(username1)
-                            console.log(username2)
-                            console.log(Promedio)
                             let deudaA ;
                             if(username1.gastoTotal<Promedio){
                                 const deuda = Promedio-username1.gastoTotal

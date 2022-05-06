@@ -9,6 +9,8 @@ const createdEvents = new Schema({
     
     date: Date,
 
+    dateString:String,
+
     nameEvent:String, 
 
     eventImg:String,
