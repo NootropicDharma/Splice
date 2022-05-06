@@ -25,6 +25,7 @@ const userSchema = new Schema(
     required: true,
     },
 
+
     favoritePlace: [],
 
     googleID: String,

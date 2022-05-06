@@ -2,6 +2,8 @@ const router = require("express").Router();
 const Evento = require("../models/evento.model")
 const User = require("../models/User.model")
 const EventosCreados = require("../models/createdEvents")
+var ObjectId = require('mongoose').Types.ObjectId
+
 router.get('/events', (req, res)=>{
     Evento.find()
     .then(events=>{
@@ -77,9 +79,30 @@ router.post("/event/favorite",(req,res)=>{
 
 router.post("/favorite/remove",(req,res)=>{
     console.log(req.body.id)
+    const {id} = req.body
+    console.log(id)
     const {username} = req.session.user
+    console.log(username)
+    User.findOneAndUpdate({username:username},{$pull:{favoritePlace:{_id:new ObjectId(id)}}})
+    .then(console.log)
+    .catch(console.log)
     res.redirect("/profile")
 
+})
+router.post('/event/eliminar', (req, res)=>{
+    console.log(req.body.id)
+    const {id} = req.body
+    console.log(id)
+    const {username} = req.session.user
+    console.log(username)
+    EventosCreados.findOneAndUpdate({username:username},{ $pull: { participants: { $in: [username]} } })
+    .then(()=>{
+        console.log("se puedo")
+        res.redirect("/profile")
+    })
+    .catch(console.log)
+    
+    
 })
 
 

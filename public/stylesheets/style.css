@@ -902,3 +902,56 @@ height: 5%;
   cursor: pointer;
 
 }
+
+.Email{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 5%;
+}
+.Email h2{
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto Slab', serif;
+
+}
+.Email div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Email div label{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.Email button{
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  margin: 15px 35% 15px 35%;
+  border: none;
+  padding: 4px 9px;
+  background-color: rgb(55, 106, 164);
+  color: white;
+  font-family: 'Roboto Slab', serif;
+}
+
+.Email button:hover{
+  cursor: pointer;
+  background-color:rgb(13, 51, 94) ;
+}
+.deuda{
+  padding-top: 40px;
+  font-size: 20px;
+  font-family: 'Roboto Slab', serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  line-height: 2;
+  
+}

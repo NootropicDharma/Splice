@@ -24,7 +24,40 @@ router.get('/nuevoGasto/:id', (req, res)=>{
                 .then(()=>{
                     EventosCreados.findByIdAndUpdate(req.params.id,{$push:{gastosTotales:{username:username,gastoTotal:totalGastosUser}}})
                         .then(()=>{
-                            res.render('profile/gasto-nuevo', evento)
+                            const Suma = evento.gastosTotales.reduce((total,usuario)=>{
+                                return total += Number(usuario.gastoTotal)
+                            },0)
+
+                            const Promedio =  Suma/evento.gastosTotales.length  
+
+                            if(evento.gastosTotales.length>1){
+                                const username1 = evento.gastosTotales[0]
+                            const username2 = evento.gastosTotales[1]
+
+                            let deudaA ;
+                            if(username1.gastoTotal<Promedio){
+                                const deuda = Promedio-username1.gastoTotal
+                                console.log(username1.username)
+                                deudaA = `${username1.username} le debe $${deuda} chelines a ${username2.username}`
+                                console.log(deudaA)
+                            } else if(username2.gastoTotal<Promedio){
+                                const deuda = Promedio-username2.gastoTotal
+                                console.log(deuda)
+                                deudaA = `${username2.username} le debe $${deuda} chelines a ${username1.username}`
+                                console.log(deudaA)
+                            } 
+
+                            EventosCreados.findByIdAndUpdate(req.params.id,{deuda:deudaA})
+                            .then(()=>{
+                                res.render('profile/gasto-nuevo', evento)
+                            })
+                            .catch(console.log("no se envio"))
+
+                            } else{
+                                res.render('profile/gasto-nuevo', evento)
+                            }
+                            
+
                             console.log("Se anexó")})
                         .catch(()=> console.log("Error"))
                 })

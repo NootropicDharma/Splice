@@ -29,13 +29,6 @@ router.get('/', isLoggedIn, (req, res)=>{
 
 
 
-// router.get("/profile", (req, res) => {
-//         Event.find()
-//         .then(eventos => {
-//                 res.render("list of events", {eventos})
-//         })
-//         .catch(console.log)
-// })
 
 
 
