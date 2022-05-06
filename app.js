@@ -77,25 +77,31 @@ passport.use(
             console.log(user)
             done(null, user.id);
         });
-        //   User.create(
-        //       { googleID: profile.id,
-        //         username: profile.displayName,
-        //         password: "",
-        //         name: profile.name.familyName,
-        //         Avatar: profile.photos[0].value
+          User.create(
+              { googleID: profile.id,
+                username: profile.displayName,
+                password: "",
+                name: profile.name.familyName,
+                Avatar: profile.photos[0].value
 
-        //         }
-        //  )
-        //     .then(newUser => {
-        //         done(null, newUser);
-        //     })
-        //     .catch(err => done(err)); // closes User.create()
+                }
+         )
+            .then(newUser => {
+                done(null, newUser);
+            })
+            .catch(err => done(err)); // closes User.create()
         })
         .catch(err => done(err)); // closes User.findOne()
     }
   )
 );
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
 
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
