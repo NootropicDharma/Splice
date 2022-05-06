@@ -943,5 +943,15 @@ height: 5%;
 .Email button:hover{
   cursor: pointer;
   background-color:rgb(13, 51, 94) ;
+}
+.deuda{
+  padding-top: 40px;
+  font-size: 20px;
+  font-family: 'Roboto Slab', serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  line-height: 2;
   
 }

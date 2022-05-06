@@ -20,6 +20,9 @@ const createdEvents = new Schema({
     gastos:[],
 
     gastosTotales:[],
+    
+    deuda:String,
+
 
 },{timestamps:true});
 
