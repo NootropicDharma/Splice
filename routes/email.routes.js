@@ -250,7 +250,7 @@ router.post('/send-email', (req, res, next) => {
 		        <!-- Email Header : BEGIN -->
 	            <tr>
 	                <td style="padding: 20px 0; text-align: center">
-	                    <img src="https://via.placeholder.com/200x50" width="200" height="50" alt="alt_text" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;">
+	                    <img src="" width="200" height="50" alt="" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;">
 	                </td>
 	            </tr>
 		        <!-- Email Header : END -->
@@ -258,7 +258,7 @@ router.post('/send-email', (req, res, next) => {
                 <!-- Hero Image, Flush : BEGIN -->
                 <tr>
                     <td style="background-color: #ffffff;">
-                        <img src="https://res.cloudinary.com/pocketpenguin/image/upload/v1651801199/pinterest_board_photo_vf2mt1.png/" width="600" height="" alt="alt_text" border="0" style="width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;" class="g-img">
+                        <img src="https://res.cloudinary.com/pocketpenguin/image/upload/v1651801199/pinterest_board_photo_vf2mt1.png" width="600" height="" alt="alt_text" border="0" style="width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;" class="g-img">
                     </td>
                 </tr>
                 <!-- Hero Image, Flush : END -->

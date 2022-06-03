@@ -20,7 +20,7 @@ router.post('/foto/create', fileUploader.single('profile-cover-image') ,(req, re
         .catch(console.log)
 })
 
-
+router.o
 
 
 module.exports = router;
